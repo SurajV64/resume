@@ -5,79 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Suraj V - Resume</title>
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #2c3e50;
+      --primary: #546e7a;
+      --accent: #e3f2fd;
+      --border: #bbdefb;
+    }
+    body.dark {
+      --bg: #1e1e1e;
+      --text: #e0e0e0;
+      --primary: #90caf9;
+      --accent: #2c3e50;
+      --border: #546e7a;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: linear-gradient(to right, #e3f2fd, #ffffff);
-      color: #2c3e50;
+      background: var(--accent);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
-
     .container {
       max-width: 880px;
       margin: 50px auto;
-      background: #ffffff;
+      background: var(--bg);
       border-radius: 12px;
       padding: 40px 50px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     }
-
     h1 {
       font-size: 2.8em;
-      color: #546e7a;
+      color: var(--primary);
       margin-bottom: 0;
     }
-
     .role {
       font-size: 1.2em;
-      color: #546e7a;
+      color: var(--primary);
       margin-bottom: 25px;
     }
-
     h2 {
-      color: #546e7a;
-      border-bottom: 2px solid #bbdefb;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
       padding-bottom: 5px;
       margin-top: 35px;
       font-size: 1.4em;
     }
-
     p, li {
       line-height: 1.7;
     }
-
     ul {
       padding-left: 20px;
       margin: 0;
     }
-
     .contact {
-      background: #e3f2fd;
+      background: var(--accent);
       padding: 15px 20px;
-      border-left: 5px solid #546e7a;
+      border-left: 5px solid var(--primary);
       border-radius: 5px;
       margin-top: 10px;
     }
-
     a {
-      color: #546e7a;
+      color: var(--primary);
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     .section {
       margin-bottom: 30px;
     }
-
     .skills li, .courses li, .certificates li {
       list-style: square;
       margin-left: 15px;
     }
+    .topbar {
+      text-align: right;
+      padding: 10px 50px;
+      background: var(--bg);
+    }
+    .topbar button {
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .qr {
+      margin-top: 20px;
+    }
+    .qr img {
+      height: 100px;
+    }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <button onclick="toggleTheme()">Toggle Mode</button>
+    <button onclick="window.print()">Download Resume</button>
+  </div>
   <div class="container">
     <h1>Suraj V</h1>
     <p class="role">Student</p>
@@ -137,6 +165,18 @@
         <li>Currently honing technical skills</li>
       </ul>
     </div>
+
+    <div class="section qr">
+      <h2>LinkedIn Profile</h2>
+      <p>Scan the QR code below to view my LinkedIn:</p>
+      <img src="suraj_linkedin_qr.png" alt="LinkedIn QR Code">
+    </div>
   </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
